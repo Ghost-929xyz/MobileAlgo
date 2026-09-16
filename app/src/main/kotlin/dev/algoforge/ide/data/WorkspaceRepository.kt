@@ -76,7 +76,7 @@ class WorkspaceRepository(
 
     suspend fun readProblem(project: WorkspaceProject, sourceFile: File): CphProblem {
         return withContext(Dispatchers.IO) {
-            val repository = CphRepository(projectDirectory(project))
+            val repository = CphRepository(projectDirectory(project).toPath())
             val preferred = repository.list().firstOrNull { path -> path.fileName.toString().startsWith(sourceFile.nameWithoutExtension) }
                 ?: repository.list().firstOrNull()
             if (preferred == null) CphProblem(name = sourceFile.nameWithoutExtension)
@@ -86,7 +86,7 @@ class WorkspaceRepository(
 
     suspend fun saveProblem(project: WorkspaceProject, sourceFile: File, problem: CphProblem) {
         withContext(Dispatchers.IO) {
-            val repository = CphRepository(projectDirectory(project))
+            val repository = CphRepository(projectDirectory(project).toPath())
             repository.save(problem, key = sourceFile.nameWithoutExtension)
         }
     }
