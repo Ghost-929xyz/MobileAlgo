@@ -1,0 +1,32 @@
+name: Import AlgoForge bundle
+
+on:
+  push:
+    paths:
+      - algoforge.bundle
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import complete repository history
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/algoforge-import-workflow
+          cp .github/workflows/import-algoforge.yml /tmp/algoforge-import-workflow/
+          git bundle verify algoforge.bundle
+          git fetch algoforge.bundle refs/heads/main:refs/heads/imported-algoforge
+          git checkout imported-algoforge
+          rm -f .github/workflows/android.yml
+          mkdir -p .github/workflows
+          cp /tmp/algoforge-import-workflow/import-algoforge.yml .github/workflows/import-algoforge.yml
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: import AlgoForge source"
+          git push --force origin HEAD:main
