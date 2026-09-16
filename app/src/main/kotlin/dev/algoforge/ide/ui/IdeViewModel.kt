@@ -222,9 +222,9 @@ class IdeViewModel(application: Application) : AndroidViewModel(application) {
         val language = snapshot.project.language.toLanguage()
         val plan = RunPlanFactory.create(
             language = language,
-            source = snapshot.sourceFile,
-            workspace = snapshot.directory,
-            outputDirectory = File(snapshot.directory, ".algoforge/out"),
+            source = snapshot.sourceFile.toPath(),
+            workspace = snapshot.directory.toPath(),
+            outputDirectory = File(snapshot.directory, ".algoforge/out").toPath(),
             limits = limitsFrom(_state.value.problem),
             standardInput = _state.value.stdin,
         )
