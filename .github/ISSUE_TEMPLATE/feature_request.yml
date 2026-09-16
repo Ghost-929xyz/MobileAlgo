@@ -1,0 +1,35 @@
+name: Feature request
+description: Propose an IDE, runtime, or competitive-programming improvement.
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What workflow is currently difficult or impossible?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Editor and workspace
+        - Runtime and toolchains
+        - Debugging
+        - CPH and testing
+        - Store-compatible runtime
+        - Documentation and CI
+    validations:
+      required: true

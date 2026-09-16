@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AlgoForge</string>
+    <string name="code">代码</string>
+    <string name="tests">测试</string>
+    <string name="console">控制台</string>
+    <string name="environment">环境</string>
+    <string name="run">运行</string>
+    <string name="debug">调试</string>
+    <string name="stop">停止</string>
+</resources>

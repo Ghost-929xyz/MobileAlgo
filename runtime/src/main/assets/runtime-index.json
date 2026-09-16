@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "UNCONFIGURED",
+  "abis": {
+    "arm64-v8a": {
+      "provider": "termux-proot",
+      "displayName": "Termux/PRoot arm64",
+      "proot": {
+        "version": "REPLACE_WITH_RELEASE_TAG",
+        "url": "https://github.com/REPLACE_ORG/REPLACE_REPO/releases/download/REPLACE_TAG/proot-aarch64",
+        "sha256": "REPLACE_WITH_64_HEX_SHA256",
+        "size": -1,
+        "license": "GPL-2.0-or-later",
+        "archiveFormat": "binary"
+      },
+      "bootstrap": {
+        "version": "REPLACE_WITH_RELEASE_TAG",
+        "url": "https://github.com/REPLACE_ORG/REPLACE_REPO/releases/download/REPLACE_TAG/algoforge-bootstrap-aarch64.tar.gz",
+        "sha256": "REPLACE_WITH_64_HEX_SHA256",
+        "size": -1,
+        "license": "GPL-3.0-or-later",
+        "archiveFormat": "tarGz",
+        "stripComponents": 0
+      }
+    }
+  }
+}

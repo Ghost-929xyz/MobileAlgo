@@ -1,0 +1,31 @@
+# Android / Gradle
+.gradle/
+**/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.fleet/
+
+# Runtime downloads and generated assets
+runtime-cache/
+app/src/main/assets/runtime/
+app/src/main/jniLibs/
+*.zip
+*.tar.gz
+*.deb
+
+# OS
+.DS_Store
+Thumbs.db
