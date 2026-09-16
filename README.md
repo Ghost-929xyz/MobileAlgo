@@ -31,11 +31,13 @@ Android 10 起，部分设备会阻止应用从可写私有目录直接执行原
 ./gradlew :app:assembleDebug
 ```
 
-如果没有 Gradle Wrapper，可先用 Android Studio 打开仓库，或执行：
+仓库当前暂未提交 `gradle-wrapper.jar`。可以用 Android Studio 打开仓库，或在已安装 Gradle 8.10.2 的环境中先生成 Wrapper：
 
 ```bash
 gradle wrapper --gradle-version 8.10.2
 ```
+
+生成后再执行 `./gradlew :app:assembleDebug`。GitHub Actions 已配置为直接使用 Gradle 8.10.2，不依赖仓库内的 Wrapper。
 
 ### 首次运行
 
