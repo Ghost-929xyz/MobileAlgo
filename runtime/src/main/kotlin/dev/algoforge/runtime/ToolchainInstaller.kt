@@ -45,10 +45,10 @@ class ToolchainInstaller(
     }
 
     private fun baseEnvironment(): Map<String, String> = mapOf(
-        "HOME", "/root",
-        "TMPDIR", "/tmp",
-        "TERM", "dumb",
-        "PROOT_TMP_DIR", paths.root.resolve("tmp").absolutePath,
-        "PROOT_NO_SECCOMP", "1",
+        "HOME" to "/root",
+        "TMPDIR" to "/tmp",
+        "TERM" to "dumb",
+        "PROOT_TMP_DIR" to paths.root.resolve("tmp").absolutePath,
+        "PROOT_NO_SECCOMP" to "1",
     )
 }
