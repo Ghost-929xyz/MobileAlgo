@@ -92,7 +92,7 @@ class RuntimeInstaller(
         } else {
             null
         }
-        if (paths.stateFile.isFile && state == null) add("runtime metadata is invalid")
+        if (paths.stateFile.isFile && state == null) reasons += "runtime metadata is invalid"
         return RuntimeStatus(
             installed = reasons.isEmpty(),
             abi = state?.abi.orEmpty(),
