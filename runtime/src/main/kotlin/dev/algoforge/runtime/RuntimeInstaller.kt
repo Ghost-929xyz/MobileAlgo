@@ -82,12 +82,11 @@ class RuntimeInstaller(
     }
 
     fun status(): RuntimeStatus {
-        val reasons = buildList {
-            if (!paths.proot.isFile) add("proot executable is missing")
-            if (!paths.rootfs.isDirectory) add("rootfs is missing")
-            if (!File(paths.rootfs, "usr").exists()) add("guest /usr prefix is missing")
-            if (!paths.stateFile.isFile) add("runtime metadata is missing")
-        }
+        val reasons = mutableListOf<String>()
+        if (!paths.proot.isFile) reasons += "proot executable is missing"
+        if (!paths.rootfs.isDirectory) reasons += "rootfs is missing"
+        if (!File(paths.rootfs, "usr").exists()) reasons += "guest /usr prefix is missing"
+        if (!paths.stateFile.isFile) reasons += "runtime metadata is missing"
         val state = if (paths.stateFile.isFile) {
             runCatching { RuntimeStateCodec.decode(paths.stateFile.readText(StandardCharsets.UTF_8)) }.getOrNull()
         } else {
